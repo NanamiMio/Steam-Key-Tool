@@ -25,7 +25,6 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-
     </script>
 
     <script>
@@ -38,7 +37,8 @@
 
             $("#clear").click(function () {
                 $("#input").val("");
-                $("#info").text("");
+                $("#outputpanel").removeClass().addClass("panel panel-default");
+                $("#outputhead").html('<span class="glyphicon glyphicon-list"></span> 提取结果');
             });
 
             $("#get").click(function () {
@@ -52,9 +52,11 @@
                 }
 
                 if (!result) {
-                    $("#info").text("提取失败，未找到 Steam Key");
+                    $("#outputpanel").removeClass().addClass("panel panel-danger");
+                    $("#outputhead").html('<span class="glyphicon glyphicon-alert"></span> 提取失败，未找到 Steam Key');
                 } else {
-                    $("#info").text("提取成功，找到了 " + result.length + " 个 Steam Key");
+                    $("#outputpanel").removeClass().addClass("panel panel-success");
+                    $("#outputhead").html('<span class="glyphicon glyphicon-list"></span> 提取成功，找到了 ' + result.length + ' 个 Steam Key');
                     $("#output").val("!redeem " + botname + result.join(","));
                 }
             });
@@ -66,21 +68,14 @@
             padding-top: 70px;
             padding-bottom: 30px;
         }
-        
+
         form {
             padding-top: 10px;
             padding-bottom: 10px;
         }
-        
+
         #botinput {
             width: 150px;
-        }
-        
-        #info {
-            margin-bottom: 0px;
-            margin-left: 30px;
-            font-size: 15px;
-            font-weight: 200;
         }
     </style>
 
@@ -93,45 +88,46 @@
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Steam Key Tool</a>
+                <a class="navbar-brand" href="">Steam Key 提取工具</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
 
-        <div class="jumbotron">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><span class = "glyphicon glyphicon-align-justify"></span> 在此粘贴含有Key的文本</div>
+            <div class="panel-body">
+                <form class="form">
+                    <textarea class="form-control" id="input" placeholder="……$%@#XXXXX-XXXXX-XXXXX$%@#……" rows="6"></textarea>
+                </form>
 
-            <form class="form">
-                <textarea class="form-control" id="input" placeholder="粘贴含有Key的文本" rows="4"></textarea>
-            </form>
+                <form class="form">
 
-            <form class="form-inline">
-                <div class="form-group">
-                    <div class="input-group" id="botinput">
-                        <div class="input-group-addon">Bot</div>
-                        <input type="text" class="form-control" id="botname">
+                    <div class="form-inline pull-right">
+                        <div class="input-group" id="botinput">
+                            <div class="input-group-addon">Bot</div>
+                            <input type="text" class="form-control" id="botname">
+                        </div>
+                        <button type="button" id="clear" class="btn btn-danger"><span class = "glyphicon glyphicon-hand-up"></span> 清除</button>
+                        <button type="button" id="copy" class="btn btn-info" data-clipboard-target="#output"><span class = "glyphicon glyphicon-hand-down"></span> 复制</button>
+                        <button type="button" id="get" class="btn btn-primary"><span class = "glyphicon glyphicon-play"></span> 提取</button>
+
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <p class="form-control-static" id="info"></p>
-
-                </div>
-
-                <div class="form-group pull-right">
-                    <button type="button" id="clear" class="btn btn-danger">清除 ↑</button>
-                    <button type="button" id="copy" class="btn btn-info" data-clipboard-target="#output">复制 ↓</button>
-                    <button type="button" id="get" class="btn btn-primary">提取</button>
-
-                </div>
-            </form>
-
-            <form class="form">
-                <textarea class="form-control" id="output" rows="4"></textarea>
-            </form>
-
+                </form>
+            </div>
         </div>
+
+        <div class="panel panel-default" id="outputpanel">
+            <div class="panel-heading" id="outputhead"><span class="glyphicon glyphicon-list"></span> 提取结果</div>
+            <div class="panel-body">
+                <form class="form">
+                    <textarea class="form-control" id="output" rows="6"></textarea>
+                </form>
+            </div>
+        </div>
+
+
 
     </div>
 
