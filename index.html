@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Steam Key Tool</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+
+    <script src="https://cdn.bootcss.com/clipboard.js/1.6.1/clipboard.min.js"></script>
+
+    <!-- Baidu Tongji -->
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?697fc6f001ffe26ccd4398f6b5fd23d8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            new Clipboard('.btn');
+            if (!Clipboard.isSupported()) {
+                $("#clear").hide();
+            }
+
+            $("#clear").click(function () {
+                $("#input").val("");
+                $("#info").text("");
+            });
+
+            $("#get").click(function () {
+                $("#output").val("");
+                var reg = /[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}/g;
+                var result = $("#input").val().match(reg);
+                var botname = $("#botname").val();
+
+                if (botname) {
+                    botname += " ";
+                }
+
+                if (!result) {
+                    $("#info").text("提取失败，未找到 Steam Key");
+                } else {
+                    $("#info").text("提取成功，找到了 " + result.length + " 个 Steam Key");
+                    $("#output").val("!redeem " + botname + result.join(","));
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+        
+        form {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        #botinput {
+            width: 150px;
+        }
+        
+        #info {
+            margin-bottom: 0px;
+            margin-left: 30px;
+            font-size: 15px;
+            font-weight: 200;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Steam Key Tool</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="jumbotron">
+
+            <form class="form">
+                <textarea class="form-control" id="input" placeholder="粘贴含有Key的文本" rows="4"></textarea>
+            </form>
+
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group" id="botinput">
+                        <div class="input-group-addon">Bot</div>
+                        <input type="text" class="form-control" id="botname">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <p class="form-control-static" id="info"></p>
+
+                </div>
+
+                <div class="form-group pull-right">
+                    <button type="button" id="clear" class="btn btn-danger">清除 ↑</button>
+                    <button type="button" id="copy" class="btn btn-info" data-clipboard-target="#output">复制 ↓</button>
+                    <button type="button" id="get" class="btn btn-primary">提取</button>
+
+                </div>
+            </form>
+
+            <form class="form">
+                <textarea class="form-control" id="output" rows="4"></textarea>
+            </form>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
