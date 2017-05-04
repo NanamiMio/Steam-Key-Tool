@@ -11,8 +11,10 @@
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- jQuery -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
 
+    <!-- clipboard.js -->
     <script src="https://cdn.bootcss.com/clipboard.js/1.6.1/clipboard.min.js"></script>
 
     <!-- Baidu Tongji -->
@@ -27,57 +29,9 @@
         })();
     </script>
 
-    <script>
-        $(document).ready(function () {
+    <script src="tool.js"></script>
 
-            new Clipboard('.btn');
-            if (!Clipboard.isSupported()) {
-                $("#clear").hide();
-            }
-
-            $("#clear").click(function () {
-                $("#input").val("");
-                $("#outputpanel").removeClass().addClass("panel panel-default");
-                $("#outputhead").html('<span class="glyphicon glyphicon-info-sign"></span> 提取结果');
-            });
-
-            $("#get").click(function () {
-                $("#output").val("");
-                var reg = /[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}-[a-zA-Z0-9]{5}/g;
-                var result = $("#input").val().match(reg);
-                var botname = $("#botname").val();
-
-                if (botname) {
-                    botname += " ";
-                }
-
-                if (!result) {
-                    $("#outputpanel").removeClass().addClass("panel panel-danger");
-                    $("#outputhead").html('<span class="glyphicon glyphicon-exclamation-sign"></span> 提取失败，未找到 Steam Key');
-                } else {
-                    $("#outputpanel").removeClass().addClass("panel panel-success");
-                    $("#outputhead").html('<span class="glyphicon glyphicon-ok-sign"></span> 提取成功，找到了 ' + result.length + ' 个 Steam Key');
-                    $("#output").val("!redeem " + botname + result.join(","));
-                }
-            });
-        });
-    </script>
-
-    <style>
-        body {
-            padding-top: 70px;
-            padding-bottom: 30px;
-        }
-
-        form {
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        #botinput {
-            width: 150px;
-        }
-    </style>
+    <link href="tool.css" rel="stylesheet">
 
 
 
@@ -85,18 +39,15 @@
 
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="">Steam Key 提取工具</a>
-            </div>
-        </div>
-    </nav>
-
     <div class="container">
 
+        <div class="page-header">
+            <h1>Steam Key Tool <small>Steam Key 提取工具</small></h1>
+        </div>
+
+
         <div class="panel panel-primary">
-            <div class="panel-heading"><span class = "glyphicon glyphicon-align-justify"></span> 在此粘贴含有 Key 的文本</div>
+            <div class="panel-heading"><span class="glyphicon glyphicon-align-justify"></span> 在此粘贴含有 Key 的文本</div>
             <div class="panel-body">
                 <form class="form">
                     <textarea class="form-control" id="input" placeholder="……$%@#XXXXX-XXXXX-XXXXX$%@#……" rows="6"></textarea>
@@ -126,11 +77,17 @@
                 </form>
             </div>
         </div>
-
-
-
     </div>
 
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                © <a href="https://shower.im/" target="_blank">shower.im</a> 2017 |
+                <a href="https://steamcn.com/t261655-1-1" target="_blank">使用指南</a>
+            </p>
+        </div>
+    </footer>
 
 </body>
 

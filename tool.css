@@ -1,0 +1,32 @@
+html {
+    /*position: relative;*/
+    min-height: 100%;
+}
+
+body {
+    /*  padding-bottom: 30px;*/
+    
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+form {
+    padding-bottom: 10px;
+}
+
+#botinput {
+    width: 150px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+}
