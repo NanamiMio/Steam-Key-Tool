@@ -11,6 +11,9 @@
     <!-- Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
     <!-- jQuery -->
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
 
@@ -42,12 +45,12 @@
     <div class="container">
 
         <div class="page-header">
-            <h1>Steam Key Tool <small>Steam Key 提取工具</small></h1>
+            <h1><i class="fa fa-steam fa-lg" aria-hidden="true"></i> <small>Steam Key 提取工具</small></h1>
         </div>
 
 
         <div class="panel panel-primary">
-            <div class="panel-heading"><span class="glyphicon glyphicon-align-justify"></span> 在此粘贴含有 Key 的文本</div>
+            <div class="panel-heading"><i class="fa fa-align-justify"></i> 在此粘贴含有 Key 的文本</div>
             <div class="panel-body">
                 <form class="form">
                     <textarea class="form-control" id="input" placeholder="……$%@#XXXXX-XXXXX-XXXXX$%@#……" rows="6"></textarea>
@@ -60,9 +63,9 @@
                             <div class="input-group-addon">Bot</div>
                             <input type="text" class="form-control" id="botname">
                         </div>
-                        <button type="button" id="clear" class="btn btn-danger"><span class = "glyphicon glyphicon-hand-up"></span> 清除</button>
-                        <button type="button" id="copy" class="btn btn-info" data-clipboard-target="#output"><span class = "glyphicon glyphicon-hand-down"></span> 复制</button>
-                        <button type="button" id="get" class="btn btn-primary"><span class = "glyphicon glyphicon-play"></span> 提取</button>
+                        <button type="button" id="clear" class="btn btn-danger"><i class="fa fa-hand-o-up" aria-hidden="true"></i> 清除</button>
+                        <button type="button" id="copy" class="btn btn-info" data-clipboard-target="#output"><i class="fa fa-hand-o-down" aria-hidden="true"></i> 复制</button>
+                        <button type="button" id="get" class="btn btn-primary"><i class="fa fa-play" aria-hidden="true"></i> 提取</button>
 
                     </div>
                 </form>
@@ -70,7 +73,7 @@
         </div>
 
         <div class="panel panel-default" id="outputpanel">
-            <div class="panel-heading" id="outputhead"><span class="glyphicon glyphicon-info-sign"></span> 提取结果</div>
+            <div class="panel-heading" id="outputhead"><i class="fa fa-info fa-fw"></i>提取结果</div>
             <div class="panel-body">
                 <form class="form">
                     <textarea class="form-control" id="output" placeholder="!redeem XXXXX-XXXXX-XXXXX" rows="6"></textarea>
@@ -83,8 +86,9 @@
     <footer class="footer">
         <div class="container">
             <p class="text-muted">
-                © <a href="https://shower.im/" target="_blank">shower.im</a> 2017 |
-                <a href="https://steamcn.com/t261655-1-1" target="_blank">使用指南</a>
+                <i class="fa fa-copyright" aria-hidden="true"></i> <a href="https://shower.im/" target="_blank">shower.im</a>                2017 |
+                <i class="fa fa-github" aria-hidden="true"></i> <a href="https://github.com/showerATP/Steam-Key-Tool">Github</a>                |
+                <i class="fa fa-compass" aria-hidden="true"></i> <a href="https://steamcn.com/t261655-1-1" target="_blank">使用指南</a>
             </p>
         </div>
     </footer>

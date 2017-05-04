@@ -8,7 +8,7 @@ $(document).ready(function () {
             $("#clear").click(function () {
                 $("#input").val("");
                 $("#outputpanel").removeClass().addClass("panel panel-default");
-                $("#outputhead").html('<span class="glyphicon glyphicon-info-sign"></span> 提取结果');
+                $("#outputhead").html('<i class="fa fa-info fa-fw"></i>提取结果');
             });
 
             $("#get").click(function () {
@@ -24,11 +24,11 @@ $(document).ready(function () {
                 if (!result) {
                     $("#outputpanel").removeClass().addClass("panel panel-danger");
                     $("#outputhead").html(
-                        '<span class="glyphicon glyphicon-exclamation-sign"></span> 提取失败，未找到 Steam Key'
+                        '<i class="fa fa-times fa-fw"></i>提取失败，未找到 Steam Key'
                     );
                 } else {
                     $("#outputpanel").removeClass().addClass("panel panel-success");
-                    $("#outputhead").html('<span class="glyphicon glyphicon-ok-sign"></span> 提取成功，找到了 ' +
+                    $("#outputhead").html('<i class="fa fa-check fa-fw"></i>提取成功，找到了 ' +
                         result.length + ' 个 Steam Key');
                     $("#output").val("!redeem " + botname + result.join(","));
                 }
