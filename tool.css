@@ -1,18 +1,13 @@
 html {
     /*position: relative;*/
-    min-height: 100%;
+    /*min-height: 100%;*/
 }
 
 body {
     /*  padding-bottom: 30px;*/
     
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
-}
-
-
-.container .text-muted {
-  margin: 20px 0;
+    /*margin-bottom: 60px;*/
 }
 
 form {
@@ -24,9 +19,5 @@ form {
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
+    text-align: center
 }
